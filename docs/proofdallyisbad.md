@@ -8,3 +8,11 @@
 #### D:
 ## Reason 3
 ### Imagine 3 search bars
+## Reason 4
+### His name starts with a D
+#### *(the same letter as D:)*
+## Reason 5
+not good
+## Reason 6
+### he pronounces castle *kas-el*
+#### LOL BAD XD
