@@ -16,3 +16,9 @@ not good
 ## Reason 6
 ### he pronounces castle *kas-el*
 #### LOL BAD XD
+## Reason 7
+### He is not called john
+#### *(if he was it would be better)*
+## Reason 8
+### He thinks he is friends with Ben Fraga 
+#### *Experts Disagree*
