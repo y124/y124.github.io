@@ -31,3 +31,7 @@ not good
 ## Reason 11
 ### He has never made a google account alone
 #### *no google account = dissapointment to friends, family and country*
+## Reason 12
+### He knows what a car is
+#### He has even been in a car
+##### **More then once !!**
