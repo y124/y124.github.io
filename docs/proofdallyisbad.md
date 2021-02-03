@@ -26,3 +26,8 @@ not good
 ### He is no exist
 #### (and is no
 ##### (and is not yes))
+## Reason 10
+### He has looked angus without saying i hate you angus before
+## Reason 11
+### He has never made a google account alone
+#### *no google account = dissapointment to friends, family and country*
