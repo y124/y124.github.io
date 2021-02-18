@@ -1,5 +1,5 @@
 # Pythagorean theorem
-### proof for equalateral trianges
+## proof for equalateral trianges
 the formular for equalateral triangle is `b*h/2`
 
 the formular for a square can be `b*h`
@@ -27,5 +27,19 @@ for 6, 12, 13
 `84.5 * 2 = 144`
 
 `root(144) = 12`
-### for Octagon
-the formular for an octagon is `2*`
+## for Octagon
+the formular for an octagon is `2*(1+root(2))*a^2`
+
+if you use the formular for an octagon as a replacement for square you get:
+
+`2*(1+root(2))*a^2 + 2*(1+root(2))*b^2 = 2*(1+root(2))*c^2`
+
+divide both sides by 2
+
+`(1+root(2))*a^2 + (1+root(2))*a^2 = (1+root(2))*c^2`
+
+divide both by `1 + root(2)`
+
+`a^2 + b^2 = c^2`
+
+The formular for a square!
