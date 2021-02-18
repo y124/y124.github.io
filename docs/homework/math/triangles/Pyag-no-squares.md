@@ -43,3 +43,5 @@ divide both by `1 + root(2)`
 `a^2 + b^2 = c^2`
 
 The formular for a square!
+
+-Ben Fraga
