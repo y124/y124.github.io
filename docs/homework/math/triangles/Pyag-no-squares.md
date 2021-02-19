@@ -24,9 +24,9 @@ for 6, 12, 13
 
 `12.5 + 72 = 84.5`
 
-`84.5 * 2 = 144`
+`84.5 * 2 = 169`
 
-`root(144) = 12`
+`root(169) = 12`
 ## for Octagon
 the formular for an octagon is `2*(1+root(2))*a^2`
 
