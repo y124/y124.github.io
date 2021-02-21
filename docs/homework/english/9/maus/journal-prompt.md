@@ -5,9 +5,9 @@ Artie and Vladik tolerate and even like each other but do not understand each ot
 
 Vladik did not understanding Artie's passion for art and Artie did not understand how cheap Vladik was.
 
-'One reason I became an artist was that he thought it was impractical — just a waste of time … it was an area where I wouldn’t have to compete with him.' - Art
+*'One reason I became an artist was that he thought it was impractical — just a waste of time … it was an area where I wouldn’t have to compete with him.'* - Art
 
-'But i'm no good at fixing that kind of stuff. Why don't you HIRE somebody?' - Art
+*'But i'm no good at fixing that kind of stuff. Why don't you HIRE somebody?'* - Art
 
 Artie and Vladik tolerate each other but have contasting values.
 
@@ -23,4 +23,13 @@ you could argue that on page 72 he survives due to the luck of not being noticed
 page 103 he survives due to the resourcfulness of making a bunker but it was also good luck that that the cellar was there in the first place to use for the bunker.
 
 i believe vladik required both resourcful and luck to survive
-### Prompt 3 “Those who cannot remember the past are condemned to repeat it.” (George Santayana). Do you think the world has learnt from the experience of the Holocaust? Justify your response.
+### Prompt 5 Does a hero need to be a likeable person?
+it is my strong belief that a hero definitely does not need to be likeable person.
+
+according to Collins Dictionary *"If you describe someone as your hero, you mean that you admire them a great deal, usually because of a particular quality or skill that they have."*
+
+you can admire someone for being great at a sport and aspire to be as good as them but this does not make them a likeable person.
+
+hero is also defined as *"the principal male character in a novel, play, etc"* there are many books and shows where the male protangist is not likeable therefore a hero is not always likeable.
+
+heros are not always likeable.
