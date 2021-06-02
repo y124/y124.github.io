@@ -40,3 +40,5 @@ not good
 ### He is scared of the internet
 ## Reason (14)
 ### This person seems really stupid !!
+## Reason 15
+### he uses Avast
