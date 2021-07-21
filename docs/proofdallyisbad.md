@@ -44,3 +44,8 @@ not good
 ### he uses Avast
 ## Reason 16
 ### NSHBA 1285 Paragraph 3
+## Reason (17)
+### Dally is bad at going to the store
+## Reason (18)
+### Dally is always late for clans
+#### (He is a noob.)
