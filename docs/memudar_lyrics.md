@@ -1,4 +1,4 @@
-Lyrics for Memudar (Faded versi bahasa Indonesia) by y124:
+# Lyrics for Memudar (Faded versi bahasa Indonesia) by y124:
 
 You were the shadow to my light
 kau bayangan cahayaku
