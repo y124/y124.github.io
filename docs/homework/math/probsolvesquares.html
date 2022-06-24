@@ -18,9 +18,9 @@ function setup () {
     for(ii = 1; ii <= l; ii++){for(i = 1; i <= w; i++){
         temp = document.createElement("div");
         temp.className = 'square';
-        temp.style.position = "absolute";
+        temp.style.position = "relative";
         temp.style.left = (50 * i + 200) + "px";
-        temp.style.top = (50 * ii) + "px";
+        temp.style.top = (50 * ii + ) + "px";
         document.body.appendChild(temp);
     }}
     line1.setAttribute('y2', (50*l)+42 + '');
@@ -47,7 +47,7 @@ function continyou () {
 </style>
 </head>
 <body>
-<table><td>
+<table><tr>
 <svg height="210" width="500" id='bad'>
 <line id='line1' x1='241' y1='41' x2=300px y2=100px style="stroke:rgb(255,0,0);stroke-width:2" />
 </svg>
@@ -56,10 +56,11 @@ function continyou () {
 <p>Width</p>
 <input type="text" id='w' value="3"></input><br>
 <p id='b'></p>
-<button onclick="setup()" id = 'btn'>calculate</button>
+<button onclick="setup()">calculate</button>
+<br>
 <script>setup()</script>
-</td><td>
+</tr><tr>
 <embed type="text/html" src="https://xzvc.tk/sidebar.html" style='height: 100vh;'>
-</td></table>
+</tr></table>
 </body>
 </html>
