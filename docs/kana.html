@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <style>
+            body {font-family: 'Roboto Mono', sans-serif; background-color:black;color:white;}
+            h1 {margin:0px;padding:0px;}
+            .friends {display:inline;}
+            #chr {font-size:300px;color:magenta;}
+            #txt {font-size:40px;}
+            #asw {font-size:150px;font-family:'Roboto Mono',sans-serif;width:1000px;}
+            #lvl {color:lime;}
+            #lvlmax {color:green;}
+            #right {color:green;}
+            #wrong {color:red;}
+            #ratdec {color:yellow;}
+            #streak {color:orange;}
+            #lstreak {color:red;}
+        </style>
+        <script>
+            console.log(localStorage.getItem('stats'))
+            var raw_hirigana = 'あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもやゆよらりるれろわゐゑをんゔアイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヰヱヲンヴ';
+            var hirigana = {'あ': 'a', 'い': 'i', 'う': 'u', 'え': 'e', 'お': 'o', 'か': 'ka', 'が': 'ga', 'き': 'ki', 'ぎ': 'gi', 'く': 'ku', 'ぐ': 'gu', 'け': 'ke', 'げ': 'ge', 'こ': 'ko', 'ご': 'go', 'さ': 'sa', 'ざ': 'za', 'し': 'shi', 'じ': 'ji', 'す': 'su', 'ず': 'zu', 'せ': 'se', 'ぜ': 'ze', 'そ': 'so', 'ぞ': 'zo', 'た': 'ta', 'だ': 'da', 'ち': 'chi', 'ぢ': 'ji', 'つ': 'tsu', 'づ': 'zu', 'て': 'te', 'で': 'de', 'と': 'to', 'ど': 'do', 'な': 'na', 'に': 'ni', 'ぬ': 'nu', 'ね': 'ne', 'の': 'no', 'は': 'ha', 'ば': 'ba', 'ぱ': 'pa', 'ひ': 'hi', 'び': 'bi', 'ぴ': 'pi', 'ふ': 'fu', 'ぶ': 'bu', 'ぷ': 'pu', 'へ': 'he', 'べ': 'be', 'ぺ': 'pe', 'ほ': 'ho', 'ぼ': 'bo', 'ぽ': 'po', 'ま': 'ma', 'み': 'mi', 'む': 'mu', 'め': 'me', 'も': 'mo', 'や': 'ya', 'ゆ': 'yu', 'よ': 'yo', 'ら': 'ra', 'り': 'ri', 'る': 'ru', 'れ': 're', 'ろ': 'ro', 'わ': 'wa', 'ゐ': 'wi', 'ゑ': 'we', 'を': 'wo', 'ん': 'n', 'ゔ': 'vu', 'ア': 'a', 'イ': 'i', 'ウ': 'u', 'エ': 'e', 'オ': 'o', 'カ': 'ka', 'ガ': 'ga', 'キ': 'ki', 'ギ': 'gi', 'ク': 'ku', 'グ': 'gu', 'ケ': 'ke', 'ゲ': 'ge', 'コ': 'ko', 'ゴ': 'go', 'サ': 'sa', 'ザ': 'za', 'シ': 'shi', 'ジ': 'ji', 'ス': 'su', 'ズ': 'zu', 'セ': 'se', 'ゼ': 'ze', 'ソ': 'so', 'ゾ': 'zo', 'タ': 'ta', 'ダ': 'da', 'チ': 'chi', 'ヂ': 'ji', 'ツ': 'tsu', 'ヅ': 'zu', 'テ': 'te', 'デ': 'de', 'ト': 'to', 'ド': 'do', 'ナ': 'na', 'ニ': 'ni', 'ヌ': 'nu', 'ネ': 'ne', 'ノ': 'no', 'ハ': 'ha', 'バ': 'ba', 'パ': 'pa', 'ヒ': 'hi', 'ビ': 'bi', 'ピ': 'pi', 'フ': 'fu', 'ブ': 'bu', 'プ': 'pu', 'ヘ': 'he', 'ベ': 'be', 'ペ': 'pe', 'ホ': 'ho', 'ボ': 'bo', 'ポ': 'po', 'マ': 'ma', 'ミ': 'mi', 'ム': 'mu', 'メ': 'me', 'モ': 'mo', 'ヤ': 'ya', 'ユ': 'yu', 'ヨ': 'yo', 'ラ': 'ra', 'リ': 'ri', 'ル': 'ru', 'レ': 're', 'ロ': 'ro', 'ヮ': 'wa', 'ワ': 'wa', 'ヰ': 'wi', 'ヱ': 'we', 'ヲ': 'wo', 'ン': 'n', 'ヴ': 'vu'}
+            try {var stats = localStorage.getItem('stats').split(',');
+                var level = stats[0];
+                var streak = stats[1];
+                var hlevel = stats[2];
+                var lstreak = stats[3];
+                var wrong = stats[4];
+                var right = stats[5];
+            }
+            catch {
+                var level = 0;
+                var streak = 0;
+                var hlevel = 0;
+                var lstreak = 0;
+                var wrong = 0;
+                var right = 0;
+            }
+            function nue() {
+                display_chr = raw_hirigana[Math.floor(Math.random()*(level+1))];
+                answer = hirigana[display_chr];
+            }
+            function tick() {
+                var user = document.getElementById("asw").value;
+                if (user.length == answer.length) {if (user == answer) {level++;streak++;right++;if (streak > lstreak) {lstreak = streak;} if (level > hlevel) {hlevel = level;}} else {if (level >= 5){level=level-5;}wrong++;streak=0;alert('WRONG! The Correct Answer Was: ' + answer)} document.getElementById('asw').value = "";nue();}
+                document.getElementById("chr").innerHTML = display_chr;document.getElementById("lvl").innerHTML = level;document.getElementById("lvlmax").innerHTML = hlevel;document.getElementById("right").innerHTML = right;document.getElementById("wrong").innerHTML = wrong;document.getElementById("ratdec").innerHTML = String(parseInt(right)/(parseInt(wrong) + 1)).substring(0, 5);document.getElementById("streak").innerHTML = streak;document.getElementById("lstreak").innerHTML = lstreak;
+                localStorage.setItem('stats', [level, streak, hlevel, lstreak, wrong, right]);
+            }
+            nue()
+            setInterval(tick, 10)
+        </script>
+    </head>
+
+    <body>
+        <h1>Learn Japanese Hirigana and Katakana</h1>
+        <table>
+            <td>
+                <p id='chr' class='friends'>あ</p>
+            </td>
+            <td id='txt'>
+                <p class='friends'>Level: </p><p id='lvl' class='friends'>0</p><p class='friends'> (</p><p id='lvlmax' class='friends'>0</p><p class='friends'>)</p>
+                <br>
+                <p class='friends'>Right Wrong Ratio: </p><p id='right' class='friends'>0</p><p class='friends'>:</p><p id='wrong' class='friends'>0</p><p class='friends'> (</p><p id='ratdec' class='friends'>0</p><p class='friends'>)</p>
+                <br>
+                <p class='friends'>Streak: </p><p id='streak' class='friends'>0</p>
+                <br>
+                <p class='friends'>Longest Streak: </p><p id='lstreak' class='friends'>0</p>
+            </td>
+        </table>
+        <input id='asw'>
+    </body>
+</html>
