@@ -43,7 +43,7 @@
                 answer = hirigana[display_chr];answer.length>3} catch {nue()}
             }
             function tick() {
-                var user = document.getElementById("asw").value;
+                var user = document.getElementById("asw").value.toLowerCase();
                 if (user.length == answer.length) {if (user == answer) {level++;streak++;right++;if (streak > lstreak) {lstreak = streak;} if (level > hlevel) {hlevel = level;}} else {if (level >= 5){level=level-5;}wrong++;streak=0;alert('WRONG! The Correct Answer Was: ' + answer)} document.getElementById('asw').value = "";nue();}
                 document.getElementById("chr").innerHTML = display_chr;document.getElementById("lvl").innerHTML = level;document.getElementById("lvlmax").innerHTML = hlevel;document.getElementById("right").innerHTML = right;document.getElementById("wrong").innerHTML = wrong;document.getElementById("ratdec").innerHTML = String(parseInt(right)/(parseInt(wrong) + 1)).substring(0, 5);document.getElementById("streak").innerHTML = streak;document.getElementById("lstreak").innerHTML = lstreak;
                 localStorage.setItem('stats', [level, streak, hlevel, lstreak, wrong, right]);
