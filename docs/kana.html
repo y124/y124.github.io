@@ -49,7 +49,7 @@
                 document.getElementById("chr").innerHTML = display_chr;document.getElementById("lvl").innerHTML = level;document.getElementById("lvlmax").innerHTML = hlevel;document.getElementById("right").innerHTML = right;document.getElementById("wrong").innerHTML = wrong;document.getElementById("ratdec").innerHTML = String(parseInt(right)/(parseInt(wrong) + 1)).substring(0, 5);document.getElementById("streak").innerHTML = streak;document.getElementById("lstreak").innerHTML = lstreak;
                 localStorage.setItem('stats', [level, streak, hlevel, lstreak, wrong, right]);
             }
-            function reset () {if (confirm('Are you sure you want to reset your stat and level, this action can not be undone')) {level = 0;streak = 0;hlevel = 0;lstreak = 0;wrong = 0;right = 0;}}
+            function reset () {if (confirm('Are you sure you want to reset your stat and level, this action can not be undone')) {level = 0;streak = 0;hlevel = 0;lstreak = 0;wrong = 0;right = 0;}nue()}
             nue()
             setInterval(tick, 10)
         </script>
