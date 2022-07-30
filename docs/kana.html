@@ -37,8 +37,10 @@
                 var right = 0;
             }
             function nue() {
-                display_chr = raw_hirigana[Math.floor(Math.random()*(level+1))];
-                answer = hirigana[display_chr];
+                try {if (level < raw_hirigana.length) {
+                display_chr = raw_hirigana[Math.floor(Math.random()*(level+1))];}
+                else {display_chr = raw_hirigana[Math.floor(Math.random()*raw_hirigana.length)];}
+                answer = hirigana[display_chr];answer.length>3} catch {nue()}
             }
             function tick() {
                 var user = document.getElementById("asw").value;
