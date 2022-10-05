@@ -1,66 +1,79 @@
 <!doctype html>
 <html>
-<head>
-<style>body {background-color: #333333; font-family: monospace;}</style>
-    <script>
-function setup () {
-    var paras = document.getElementsByClassName('square');
 
-    while(paras[0]) {
-        paras[0].parentNode.removeChild(paras[0]);
-    }
-    console.log(paras);
-    l = parseInt(document.getElementById("l").value);
-    b = 0;
-    w = parseInt(document.getElementById("w").value);
-    line1 = document.getElementById("line1");
-    bad = document.getElementById("bad");
-    for(ii = 1; ii <= l; ii++){for(i = 1; i <= w; i++){
-        temp = document.createElement("div");
-        temp.className = 'square';
-        temp.style.position = "absolute";
-        temp.style.left = (50 * i + 200) + "px";
-        temp.style.top = (50 * ii) + "px";
-        document.body.appendChild(temp);
-    }}
-    line1.setAttribute('y2', (50*l)+42 + '');
-    line1.setAttribute('x2', (50*w)+242 + '');
-    bad.setAttribute('height', (50*l)+42 + '');
-    bad.setAttribute('width', (50*w)+242 + '');
-    continyou()
-}
-function continyou () {
-    if(l > w){l = l - w; b = b + w} 
-    else{w = w - l; b = b + l}
-    if(0===l||0===w){document.getElementById("b").innerHTML = b}
-    else{continyou()}
-}
-</script>
-<style>
-.square {
-  height: 48px;
-  width: 48px;
-  background: #eee;
-  z-index: -1;
-  outline: 1px solid #000;
-}
-</style>
+<head>
+    <style>
+        body {
+            background-color: #333333;
+            font-family: monospace;
+        }
+    </style>
+    <script>
+        function setup() {
+            var paras = document.getElementsByClassName('square');
+
+            while (paras[0]) {
+                paras[0].parentNode.removeChild(paras[0]);
+            }
+            console.log(paras);
+            l = parseInt(document.getElementById("l").value);
+            b = 0;
+            w = parseInt(document.getElementById("w").value);
+            line1 = document.getElementById("line1");
+            bad = document.getElementById("bad");
+            for (ii = 1; ii <= l; ii++) {
+                for (i = 1; i <= w; i++) {
+                    temp = document.createElement("div");
+                    temp.className = 'square';
+                    temp.style.position = "absolute";
+                    temp.style.left = (50 * i + 200) + "px";
+                    temp.style.top = (50 * ii) + "px";
+                    document.body.appendChild(temp);
+                }
+            }
+            line1.setAttribute('y2', (50 * l) + 42 + '');
+            line1.setAttribute('x2', (50 * w) + 242 + '');
+            bad.setAttribute('height', (50 * l) + 42 + '');
+            bad.setAttribute('width', (50 * w) + 242 + '');
+            continyou()
+        }
+        function continyou() {
+            if (l > w) { l = l - w; b = b + w }
+            else { w = w - l; b = b + l }
+            if (0 === l || 0 === w) { document.getElementById("b").innerHTML = b }
+            else { continyou() }
+        }
+    </script>
+    <style>
+        .square {
+            height: 48px;
+            width: 48px;
+            background: #eee;
+            z-index: -1;
+            outline: 1px solid #000;
+        }
+    </style>
 </head>
+
 <body>
-<table><tr>
-<svg height="210" width="500" id='bad'>
-<line id='line1' x1='241' y1='41' x2=300px y2=100px style="stroke:rgb(255,0,0);stroke-width:2" />
-</svg>
-<p>Height</p>
-<input type="text" id='l' value="5"></input><br>
-<p>Width</p>
-<input type="text" id='w' value="3"></input><br>
-<p id='b'></p>
-<button onclick="setup()">calculate</button>
-<br>
-<script>setup()</script>
-</tr><tr>
-<embed type="text/html" src="https://xzvc.tk/sidebar.html" style='height: 100vh;'>
-</tr></table>
+    <table>
+        <tr>
+            <svg height="210" width="500" id='bad'>
+                <line id='line1' x1='241' y1='41' x2=300px y2=100px style="stroke:rgb(255,0,0);stroke-width:2" />
+            </svg>
+            <p>Height</p>
+            <input type="text" id='l' value="5"></input><br>
+            <p>Width</p>
+            <input type="text" id='w' value="3"></input><br>
+            <p id='b'></p>
+            <button onclick="setup()">calculate</button>
+            <br>
+            <script>setup()</script>
+        </tr>
+        <tr>
+            <embed type="text/html" src="/sidebar.html" style='height: 100vh;'>
+        </tr>
+    </table>
 </body>
+
 </html>
