@@ -1,2 +1,2 @@
-# xzvc.tk
+# xzvc.dynamitegus.org
 IDK LIKE WEBSITE BRO
