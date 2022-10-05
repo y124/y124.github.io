@@ -1,22 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 p {
   display: inline;
 }
+
 .category {
-  font-size: 30px; 
+  font-size: 30px;
   color: magenta;
 }
-.container{
+
+.container {
   align-items: center;
   display: inline-block;
 }
+
 .item {
   margin-left: 8%;
   display: flex;
   flex-direction: column;
   position: fixed;
 }
+
 .sidenav {
   height: 100%;
   width: moz-available;
@@ -29,35 +34,44 @@ p {
   padding-top: 20px;
   background-color: #111111;
 }
+
 .sidenav a {
   text-decoration: none;
   display: grid;
-  background-color: #111111; 
+  background-color: #111111;
   color: #5c5c5c;
   font-family: 'Ubuntu Mono', monospace;
 }
+
 .sidenav a:hover {
   color: #818181;
 }
+
 .search {
-  bottom: 10px; /*bottom aligned*/
-  
+  bottom: 10px;
+  /*bottom aligned*/
+
 }
+
 .main {
   margin-left: 265px;
   padding: 0px 10px;
 }
+
 #bottom {
   position: absolute;
   bottom: 30px;
   left: 7px;
-  }
+}
+
 .la {
   color: magenta;
 }
+
 .lb {
   color: #222222;
 }
+
 #shadowBox {
   background-color: rgb(0, 0, 0);
   /* Fallback color */
@@ -71,8 +85,9 @@ p {
   text-decoration: underline;
   font-family: monospace;
 }
+
 .rainbow_text_animated {
-  background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+  background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -81,24 +96,28 @@ p {
 }
 
 @keyframes rainbow_animation {
-  0%,100% {
-      background-position: 0 0;
+
+  0%,
+  100% {
+    background-position: 0 0;
   }
 
   50% {
-      background-position: 100% 0;
+    background-position: 100% 0;
   }
 }
+
 .card {
   background-color: #212121;
   color: #ffffff;
   padding: 1% 1% 1% 1%;
 
 }
+
 .notcard {
   background-color: #000000;
 }
 
 hr.cspc {
-border: #000000;
+  border: #000000;
 }
