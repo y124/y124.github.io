@@ -11,18 +11,28 @@
     <script>
         let to;
         var q = 0;
+        var q2 = 0;
         var x = true;
-        const colors = ['red', 'orange', 'yellow', 'lime', 'aqua', 'magenta', 'purple', 'red', 'orange', 'yellow', 'lime', 'aqua', 'magenta', 'purple', 'red'];
-        function main() { if (q == 7) { q = 0 } q++; magic(q); }
+        const colors = ['red', 'orange', 'yellow', 'lime', 'aqua', 'magenta', 'purple', 'red', 'orange', 'yellow', 'lime', 'aqua', 'magenta', 'purple', 'red', 'orange', 'yellow', 'lime', 'aqua', 'magenta', 'purple', 'red', 'orange', 'yellow', 'lime', 'aqua', 'magenta', 'purple', 'red'];
+        function main() { if (q == 4) { q = 0 } q++; magic(q); }
+        function main2() { if (q2 == 10) { q2 = 0 } q2++; magic2(q2); }
         function magic(l) {
             var x = 0;
-            for (let i = 1; i < 8; i++) {
+            for (let i = 1; i < 5; i++) {
                 x++;
                 document.getElementById("l" + (x).toString()).style.color = colors[i + l];
             }
         }
+        function magic2(l) {
+            var x = 0;
+            for (let i = 1; i < 11; i++) {
+                x++;
+                document.getElementById("2l" + (x).toString()).style.color = colors[i + l];
+            }
+        }
         function gameplay() { x = !x; document.getElementById("title").innerHTML = ['WÉBSȲT MĒD BȲ y124 GÜD ÁND YÉS :)', 'WEBSITE MADE BY y124 GOOD AND YES :)'][0 + x]; document.getElementById("subtitle").innerHTML = ['Klīelī ḑe bést wébsȳt on ḑe intënét', 'Clearly the best website on the internet'][0 + x] }
-        setInterval(main, 50)
+        setInterval(main, 100)
+        setInterval(main2, 50)
         setInterval(gameplay, 1000)
     </script>
     <style>
@@ -41,12 +51,20 @@
         }
 
         .p2 {
+            margin-top:0px;
+            margin-bottom:0px;
             font-size: 100px
         }
 
         .p3 {
             color: #008888;
             font-size: 25px
+        }
+
+        .p4 {
+            margin-top:0px;
+            margin-bottom:0px;
+            font-size: 20px
         }
     </style>
 </head>
@@ -71,9 +89,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class=p2>
-                                    <p><a id=l1>x</a><a id=l2>z</a><a id=l3>v</a><a id=l4>c</a><a id=l5>.</a><a
-                                            id=l6>t</a><a id=l7>k</a></p>
+                                <div>
+                                    <p class=p2><a id=l1>ӂ</a><a id=l2>.</a><a id=l3>p</a><a id=l4>l</a></p>
+                                    <p class=p4><a id=2l1>x</a><a id=2l2>n</a><a id=2l3>-</a><a id=2l4>-</a><a id=2l5>f</a><a id=2l6>5</a><a id=2l7>a</a><a id=2l8>.</a><a id=2l9>p</a><a id=2l10>l</a></p>
                                 </div>
                             </td>
                         </tr>
