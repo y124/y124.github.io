@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet'>
+		<link rel="stylesheet" href="styling.css">
+		<script>
+			function main() {
+                document.getElementById('a_404').style.fontSize = (Math.random() * 18 + 5) + 'vw';
+                document.getElementById('b_404').style.fontSize = (Math.random() * 18 + 5) + 'vw';
+                document.getElementById('c_404').style.fontSize = (Math.random() * 18 + 5) + 'vw';
+                document.getElementById('a_404').style.color = 'hsl(' + Math.floor(Math.random() * 360) + ' ' + Math.floor(Math.random() * 100) + '% ' + Math.floor(Math.random() * 100) + '%)';
+                document.getElementById('b_404').style.color = 'hsl(' + Math.floor(Math.random() * 360) + ' ' + Math.floor(Math.random() * 100) + '% ' + Math.floor(Math.random() * 100) + '%)';
+                document.getElementById('c_404').style.color = 'hsl(' + Math.floor(Math.random() * 360) + ' ' + Math.floor(Math.random() * 100) + '% ' + Math.floor(Math.random() * 100) + '%)';
+            }
+            
+            function epilepsy() {
+                document.getElementById('cringbody').style.backgroundColor = 'hsl(' + Math.floor(Math.random() * 360) + ' ' + Math.floor(Math.random() * 100) + '% ' + Math.floor(Math.random() * 100) + '%)';
+            }
+            txt = 'error page not found'
+            
+            function whyv2() {
+                txt2 = '';
+                for (let i = 0; i < txt.length; i++) {
+                    txt2 = txt2 + [txt[i], txt[i].toUpperCase()][Math.floor(Math.random() * 2)]
+                }
+                document.getElementById('text404').innerHTML = txt2
+            }
+            
+            function buttoning() {
+                document.getElementById('btn1').style.width = Math.floor(Math.random() * 25) + 'vw';
+                document.getElementById('btn2').style.width = Math.floor(Math.random() * 25) + 'vw';
+                document.getElementById('btn1').style.height = Math.floor(Math.random() * 15) + 'vh';
+                document.getElementById('btn2').style.height = Math.floor(Math.random() * 15) + 'vh';
+            }
+            
+            function start() {
+                document.getElementById("start").remove();
+                setInterval(main, 200);
+                setInterval(epilepsy, 20);
+                setInterval(whyv2, 150);
+                setInterval(buttoning, 500)
+            }
+		</script>
+	</head>
+	<body id='cringbody'>
+		<div id='txt404fix'><p id='text404main'><a id='a_404'>4</a><a id='b_404'>0</a><a id='c_404'>4</a></p></div>
+		<p id='text404'>Error page not found</p>
+		<p class='l404'><button onclick="location.href='index.html';" id='btn1'>Go home</button></p>
+		<p class='l404'><button onclick="location.href='chinaestonia.html';" id='btn2'>Go to working article</button></p>
+		<button id='start' onclick="start()">CLICK TO START 404 PAGE (warning epilepsy)</button>
+	</body>
+</html>
