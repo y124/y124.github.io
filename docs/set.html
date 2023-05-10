@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Grid Example</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #000000;
+			color: #ffffff;
+			text-align: center;
+		}
+		h1 {
+			margin-top: 2vh;
+			margin-bottom: 2vh;
+			font-size: 40px;
+		}
+		p {
+			font-size: 25px;
+		}
+		button {
+			border: none;
+
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 60px;
+			margin: 5px;
+			cursor: pointer;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			transition: background-color 0.3s ease;
+			width: 30vw;
+			height: 10vh;
+		}
+		button:hover {
+			background-color: #222222;
+		}
+	</style>
+</head>
+<body>
+	<h1>Set</h1>
+	<div id="button-grid"></div>
+
+	<script>
+		function ResetDeck() {
+			const colors = ["red", "green", "purple"];
+		    const numbers = [1, 2, 3];
+		    const fills = ["solid", "striped", "open"];
+		    const shapes = ["diamond", "oval", "squiggle"];
+		    const deck = [];
+		    for (let color of colors) {
+		        for (let number of numbers) {
+		            for (let fill of fills) {
+		                for (let shape of shapes) {
+		                    const card = [color, number, fill, shape];
+		                    deck.push(card);
+		                }
+		            }
+		        }
+		    }
+		    return deck
+		}
+		deck = ResetDeck()
+		// Define the size of the grid
+		const numRows = 7;
+		const numCols = 3;
+		function generateRandomDictionary() {
+		    const dictionary = {};
+		    let i = 1;
+		    while (i <= 12) {
+		        const randomIndex = Math.floor(Math.random() * deck.length);
+		        const card = deck[randomIndex];
+		        deck.splice(randomIndex, 1);
+		        if (!Object.values(dictionary).some(val => val == card)) {
+		            dictionary[i] = card;
+		            i++;
+		        }
+		    }
+
+		    return dictionary;
+		}
+		function add3cards() {
+			let i = 1;
+			let c = 0;
+			let cl = [];
+			j = 1;
+			cardsmain2 = {};
+			if (Object.keys(cardsmain).length > 12 && Object.values(cardsmain).includes(null)) {
+				for (ii = 1; ii <= Object.keys(cardsmain).length; ii++) {
+					if (cardsmain[ii] != null) {
+						cardsmain2[j] = cardsmain[ii];
+						j++;
+					}
+				}
+				cardsmain = cardsmain2;
+				return
+			}
+			while (i <= Object.keys(cardsmain).length && c < 3) {
+				if (cardsmain[i] == null) {
+					c++;
+					cl.push(i);
+				}
+				i++;
+			}
+			if (deck.length === 0) {
+				if (findSets(cardsmain) == null) {
+					alert('found all the sets (epic) time: not coded')
+					deck = ResetDeck()
+					cardsmain = generateRandomDictionary()
+				}
+			}
+			for (i = 0; i < 3; i++) {
+				const randomIndex = Math.floor(Math.random() * deck.length);
+		        const card = deck[randomIndex];
+		        deck.splice(randomIndex, 1);
+		        if (c == 3) {
+					cardsmain[cl[i]] = card
+				}
+				else {
+					cardsmain[Object.keys(cardsmain).length+1] = card
+				}
+			}
+		}
+		let cardsmain = generateRandomDictionary()
+		function setButtonText(row, col, text) {
+  			const button = document.querySelector(`button[data-row='${row}'][data-col='${col}']`);
+  			if (text.length > 1) {
+  				button.innerText = ['𝓞','𝓢','𝓓','Ⓞ','Ⓢ','Ⓓ','𝕆','𝕊','𝔻'][{'O':0,'S':1,'D':2}[text.charAt(0)]+(parseInt(text.charAt(text.length-2))-1)*3].repeat(text.length-2);
+  				button.style.color = {'g':'green', 'r':'red', 'p':'purple'}[text.charAt(text.length - 1).toLowerCase()];
+  			}
+  			else {
+  				button.innerText = text
+  			}
+		}
+		function getButtonText(row, col) {
+  			return convertSetToString(cardsmain[col+row*3+1])
+		}
+		function isSet(card1, card2, card3) { 
+			// Determines whether three cards form a valid set based on their color, number, fill, and shape.
+	  		for (let i = 0; i < card1.length; i++) {
+			    if ((card1[i] === card2[i] && card2[i] === card3[i]) || (card1[i] !== card2[i] && card2[i] !== card3[i] && card1[i] !== card3[i])) {
+			      continue;
+			    } 
+			    else {
+				    return false;
+			    }
+			}
+	  		return true;
+		}
+		function changeButtonColor(x, y, color) {
+		  	const button = document.querySelector(`#button-${x}-${y}`);
+		  	button.style.backgroundColor = color;
+		}
+		function getButtonColor(x, y) {
+		  	const button = document.querySelector(`#button-${x}-${y}`);
+		  	return button.style.backgroundColor;
+		}
+		function convertSetToString(setArray) {
+			if (setArray == null) {
+				return ''
+			}
+		  	const shapeMap = {
+		    	"diamond": "D",
+		    	"oval": "O",
+		    	"squiggle": "S"
+		  	};
+		  	const shapeChar = shapeMap[setArray[3]];
+		  	const fillChar = setArray[2] === "solid" ? "1" : setArray[2] === "striped" ? "2" : "3";
+		  	const colorChar = setArray[0].charAt(0).toUpperCase();
+		  	return shapeChar.repeat(setArray[1]) + fillChar + colorChar;
+		}
+		function convertStringToSet(str) {
+		    if (str === '') {
+		        return null;
+		    }
+		    const shapeMap = {
+		        "D": "diamond",
+		        "O": "oval",
+		        "S": "squiggle"
+		    };
+		    const fillMap = {
+		        "1": "solid",
+		        "2": "striped",
+		        "3": "empty"
+		    };
+		    const shapeChar = str.charAt(0);
+		    const fillChar = str.charAt(str.length - 2);
+		    const colorChar = str.charAt(str.length - 1).toLowerCase();
+		  
+		    const shape = shapeMap[shapeChar];
+		    const fill = fillMap[fillChar];
+		    const color = {'g':'green', 'r':'red', 'p':'purple'}[colorChar];
+		  
+		    const number = str.length - 2;
+		  
+		    return [color, number, fill, shape];
+		}
+		function putGrid() {
+			let i = 1
+			let iii = 0
+			while (i <= Object.keys(cardsmain).length) {
+				for (ii = 0; ii <3; ii++) {
+					setButtonText(iii, ii, convertSetToString(cardsmain[i]))
+					i++
+				}
+				iii++
+			}
+			while (i <= 21) {
+				for (ii = 0; ii <3; ii++) {
+					setButtonText(iii, ii, '')
+					i++
+				}
+				iii++
+			}
+		}
+		function findSets(dictionary) {
+		    const cards = Object.values(dictionary);
+		    const numCards = cards.length;
+		    for (let i = 0; i < numCards - 2; i++) {
+		        for (let j = i + 1; j < numCards - 1; j++) {
+		            for (let k = j + 1; k < numCards; k++) {
+		                const card1 = cards[i];
+		                const card2 = cards[j];
+		                const card3 = cards[k];
+		                if (!([card1, card2, card3].includes(undefined) || [card1, card2, card3].includes(null))) {
+		                	if (isSet(card1, card2, card3)) {
+		                    	return [i+1, j+1, k+1];
+		                	}
+		                }
+		            }
+		        }
+		    }
+		    return null;
+		}
+		function CheckBoard() {
+			if (findSets(cardsmain) === null) {
+				add3cards();
+				CheckBoard();
+				putGrid();
+			}
+			putGrid()
+			const cl = document.getElementById("cl");
+			cl.innerText = 'cards left: ' + deck.length;
+		}
+		// Create the button grid
+		const buttonGrid = document.getElementById("button-grid");
+		for (let i = 0; i < numRows; i++) {
+			for (let j = 0; j < numCols; j++) {
+				const button = document.createElement("button");
+				button.innerText = `Button ${i}-${j}`;
+				button.setAttribute('id', `button-${i}-${j}`);
+				button.dataset.row = i;
+				button.dataset.col = j;
+				button.addEventListener("click", () => {
+					const row = button.dataset.row;
+					const col = button.dataset.col;
+					if (getButtonColor(row, col) == 'rgb(68, 68, 68)' || document.querySelector(`button[data-row='${row}'][data-col='${col}']`).innerText == '') {
+						changeButtonColor(row, col, '')
+					}
+					else {
+						changeButtonColor(row, col, '#444444')
+					}
+					setAttempt = []
+					for (let i = 0; i < numRows; i++) {
+						for (let j = 0; j < numCols; j++) {
+							if (getButtonColor(i, j) == 'rgb(68, 68, 68)') {
+								setAttempt.push([i, j])
+							}
+						}
+					}
+					if (setAttempt.length == 3) {
+						if (isSet(convertStringToSet(getButtonText(setAttempt[0][0],setAttempt[0][1])), convertStringToSet(getButtonText(setAttempt[1][0],setAttempt[1][1])), convertStringToSet(getButtonText(setAttempt[2][0],setAttempt[2][1])))) {
+							for (i = 0; i <= 2; i++) {
+								changeButtonColor(setAttempt[i][0], setAttempt[i][1], '')
+								cardsmain[setAttempt[i][0]*3+setAttempt[i][1]+1] = null
+							}
+							add3cards()
+						}
+						else {
+							for (i = 0; i <= 2; i++) {
+								changeButtonColor(setAttempt[i][0], setAttempt[i][1], '')
+							}
+						}
+					}
+					CheckBoard()
+				});
+				buttonGrid.appendChild(button);
+			}
+			buttonGrid.appendChild(document.createElement("br"));
+		}
+		CheckBoard()
+		putGrid()
+	</script>
+	<p id='cl'>cards left: 69</p>
+</body>
+</html>
