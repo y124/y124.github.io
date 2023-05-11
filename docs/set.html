@@ -32,15 +32,13 @@
 			width: 30vw;
 			height: 10vh;
 		}
-		button:hover {
-			background-color: #222222;
-		}
 	</style>
 </head>
 <body>
 	<h1>Set</h1>
 	<div id="button-grid"></div>
-
+	<p id='cl'>cards left: 69</p>
+	<p id='timerp'>null</p>
 	<script>
 		function ResetDeck() {
 			const colors = ["red", "green", "purple"];
@@ -104,9 +102,11 @@
 			}
 			if (deck.length === 0) {
 				if (findSets(cardsmain) == null) {
-					alert('found all the sets (epic) time: not coded')
-					deck = ResetDeck()
-					cardsmain = generateRandomDictionary()
+					alert('found all the sets (epic) time: ' + tt);
+					deck = ResetDeck();
+					cardsmain = generateRandomDictionary();
+					RsTimer();
+					return
 				}
 			}
 			for (i = 0; i < 3; i++) {
@@ -127,9 +127,11 @@
   			if (text.length > 1) {
   				button.innerText = ['𝓞','𝓢','𝓓','Ⓞ','Ⓢ','Ⓓ','𝕆','𝕊','𝔻'][{'O':0,'S':1,'D':2}[text.charAt(0)]+(parseInt(text.charAt(text.length-2))-1)*3].repeat(text.length-2);
   				button.style.color = {'g':'green', 'r':'red', 'p':'purple'}[text.charAt(text.length - 1).toLowerCase()];
+  				button.style.visibility = "visible";
   			}
   			else {
-  				button.innerText = text
+  				button.innerText = text;
+  				button.style.visibility = "hidden";
   			}
 		}
 		function getButtonText(row, col) {
@@ -288,9 +290,36 @@
 			}
 			buttonGrid.appendChild(document.createElement("br"));
 		}
-		CheckBoard()
-		putGrid()
+		function RsTimer() {
+			var date = new Date();
+			start = date[Symbol.toPrimitive]('number')
+		}
+		function Timer() {
+			const timerp = document.getElementById("timerp");
+			var date = new Date();
+			time = Math.floor((date[Symbol.toPrimitive]('number') - start)/10)
+			tt = '';
+			if (time > 600) {
+				tt += Math.floor((time%360000)/6000);
+				tt += ':';
+			}
+			if (time > 100) {
+				if (Math.floor((time%6000)/100) < 10) {
+					tt += '0'
+				}
+				tt += Math.floor((time%6000)/100);
+				tt += '.';
+			}
+			if (Math.floor(time%100) < 10) {
+				tt += '0'
+			}
+			tt += time%100;
+			timerp.innerText = tt;
+		}
+		CheckBoard();
+		putGrid();
+		RsTimer();
+		setInterval(Timer,10);
 	</script>
-	<p id='cl'>cards left: 69</p>
 </body>
 </html>
